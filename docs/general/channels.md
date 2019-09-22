@@ -1,5 +1,5 @@
 ---
-id: channels
+path: "/docs/general/channels"
 title: Channels
 ---
 ### Channel overview

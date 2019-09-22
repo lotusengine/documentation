@@ -1,5 +1,5 @@
 ---
-id: triggers
+path: "/docs/workflows/triggers"
 title: Workflow Triggers
 ---
 

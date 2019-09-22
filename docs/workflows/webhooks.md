@@ -1,5 +1,5 @@
 ---
-id: webhooks
+path: "/docs/workflows/webhooks"
 title: Webhooks
 ---
 

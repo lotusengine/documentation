@@ -1,5 +1,5 @@
 ---
-id: intro
+path: "/docs/workflows/intro"
 title: Workflow Overview
 ---
 

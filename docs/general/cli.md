@@ -1,5 +1,5 @@
 ---
-id: cli
+path: "/docs/general/cli"
 title: Using the CLI
 ---
  

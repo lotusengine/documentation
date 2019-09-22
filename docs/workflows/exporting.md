@@ -1,5 +1,5 @@
 ---
-id: exporting
+path: "/docs/workflows/exporting"
 title: Exporting
 ---
  

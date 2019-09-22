@@ -1,5 +1,5 @@
 ---
-id: modules
+path: "/docs/workflows/modules"
 title: Workflow Modules
 ---
 

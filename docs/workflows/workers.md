@@ -1,5 +1,5 @@
 ---
-id: workers
+path: "/docs/workflows/workers"
 title: Workers
 ---
 

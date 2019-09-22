@@ -1,5 +1,5 @@
 ---
-id: intro
+path: "/docs/general/intro"
 title: Getting Started
 ---
 

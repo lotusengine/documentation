@@ -1,5 +1,5 @@
 ---
-id: leek
+path: "/docs/storage/leek"
 title: Encrypted Key Storage
 ---
 

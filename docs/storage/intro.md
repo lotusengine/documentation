@@ -1,5 +1,5 @@
 ---
-id: intro
+path: "/docs/storage/intro"
 title: Storage Overview
 ---
 

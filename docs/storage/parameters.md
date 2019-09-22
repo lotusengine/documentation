@@ -1,5 +1,5 @@
 ---
-id: tabular
+path: "/docs/storage/parameters"
 title: Parameter Storage
 ---
 

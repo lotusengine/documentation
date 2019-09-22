@@ -1,5 +1,5 @@
 ---
-id: channel
+path: "/docs/storage/channel"
 title: Channel Storage
 ---
 
