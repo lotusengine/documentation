@@ -1,0 +1,14 @@
+{
+  "devDependencies": {},
+  "scripts": {
+    "schema": "graphql-markdown"
+  },
+  "name": "lotusengine-documentation",
+  "version": "1.0.0",
+  "description": "LotusEngine documentation",
+  "main": "index.js",
+  "repository": "https://github.com/lotusengine/documentation",
+  "author": "lotusengine",
+  "license": "MIT",
+  "private": true
+}

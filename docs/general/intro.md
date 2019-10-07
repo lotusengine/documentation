@@ -4,6 +4,11 @@ title: Getting Started
 ---
 
 
-Welcome to the LotusEngine documentation site.  We are in the process of launching publicly so these docs are a work in progress aimed at giving you an idea of what is to come!
+Welcome to the LotusEngine documentation site.  We are in the process of launching publicly so these docs are a work in progress aimed at giving you an idea of what is to come. 
 
-LotusEngine is best defined as an app/service builder for ecommerce/marketing. It lets developers wireframe the flow between various API and eases the pain points of doing so by providing standard constructs such as webhooks, storage, triggers etc... These wireframe are known as _workflows_ and can be created using a simple JSON/YAML file or through the UI.
+
+## What is LotusEngine
+
+LotusEngine can be summarized as _reactive ecommerce analytics_. In short it allows you to collect any kind of ecommerce and marketing data such as orders, leads, visits and so on and react to any signal or insight on this data with complex automations called _workflows_. These _workflows_ can be created using through the dashboard UI or with our developer tools and define how to react to these signals. Workflows let you write custom code, connect to 3rd party services and so on. 
+
+Take a look at the concepts page for a deeper understanding.
