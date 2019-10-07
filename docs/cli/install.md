@@ -1,5 +1,5 @@
 ---
-path: "/docs/ui/install"
+path: "/docs/cli/install"
 title: Installation
 ---
 
