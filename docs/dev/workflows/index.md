@@ -72,7 +72,6 @@ webhook:
 	  - "e3d5e160-ac8a-11e9-8742-0d36cbe54355"
   - origins:
     - "*"
-    
 ```
 
 ```json
