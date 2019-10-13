@@ -33,10 +33,12 @@ We currently support:
 - *Leads*: sale opportunities
 - *Visits*: website visitor and related visit data
 - *Events*: generic event such as button clicks, video views, etc
+- *Forms*: form submissions
+- *Subscriptions*: mailing list subscriptions
 
 By understanding these models we can provide greater insight on which you can trigger your automations with.
 
-In addition, by delineating a standard format for things like order data we can build reusable functionality or integrations that can be shared with the community.
+In addition, by delineating a standard format or CDA (Canonical Data Model) for things like order data we can build reusable functionality or integrations that can be shared with the community.
 
 Let's imagine that a developer creates workflows to receive orders from Shopify, eBay and Amazon. By using a standard model for these orders, the developer can write workflows without being concerned about how each of these sources formats their orders. Along the same lines, integrations are developed to work with these channels - for example, a SendGrid email receipt integration knows where to find the email property in a provided order object.
 
