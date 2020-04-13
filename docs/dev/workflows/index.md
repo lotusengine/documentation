@@ -97,8 +97,7 @@ webhook:
 
 ### Parameter Definition
 
- Parameter    | Default | Description                                                                      |
-| ------------ | ------- | -------------------------------------------------------------------------------- |
+ |Parameter    | Default | Description   |                                                             | ------------ | ------- | -- |
 | active | false   | Enable/disable webhook.                               |
 | keys    |  null   | Array of UUID. Valid UUID Version 1 to use as keys for header validation. The header to send is `x-lotus-wid`. You can generate these keys yourself using `uuidgen` on the MacOS/Linux CLI or use an online generator such as https://www.uuidgenerator.net. |
 | origins | null | Array of URLS to allow. Use `*` for wildcard. |
