@@ -1,7 +1,9 @@
 {
-  "devDependencies": {},
+  "devDependencies": {
+    "graphql-markdown": "^5.2.0"
+  },
   "scripts": {
-    "schema": "graphql-markdown"
+    "schema": "graphql-markdown  --no-title --prologue='---\npath: '/docs/api/schema'\ntitle: Schema\n---\n\n## Schema'  http://localhost:62222/graphql > ./docs/api/schema/index.md"
   },
   "name": "lotusengine-documentation",
   "version": "1.0.0",
