@@ -1,6 +1,6 @@
 ---
-path: "/docs/api/auth"
-title: API Authentication
+path: '/docs/api/auth'
+title: API authentication
 ---
 
 Coming soon!

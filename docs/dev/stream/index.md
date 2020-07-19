@@ -1,6 +1,6 @@
 ---
 path: '/docs/dev/stream'
-title: The Stream Object
+title: The stream object
 ---
 
 Throughout a workflow's lifecycle a number of parameters are available for inspection and potential modification. Depending on the type of workflow action involved the manner in which this data is accessed will differ but the structure remains the same.

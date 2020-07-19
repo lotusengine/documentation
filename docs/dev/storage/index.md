@@ -1,6 +1,6 @@
 ---
 path: '/docs/dev/reference'
-title: Storage Options
+title: Storage options
 ---
 
 ## Overview
