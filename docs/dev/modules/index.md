@@ -64,32 +64,56 @@ The `code` parameter should be written in THIS_FORMAT and end with "ERROR" for e
 
 At the simplest format a simple return statement is equivalent to:
 
-```
+```json
 {
-  result: null,
-  events: []
+  "result": null,
+  "events": []
 }
 ```
 
 A sample response with payload, am event to be logged and an error:
 
-```
+```json
 {
-  result: { foo: 'bar' },
-  events: [{
-    code: 'REQUEST_ERROR',
-    message: 'That did not go well',
-    data: {
-      somedata: 'somevalue',
+  "result": { "foo": "bar" },
+  "events": [
+    {
+      "code": "REQUEST_ERROR",
+      "message": "That did not go well",
+      "data": {
+        "somedata": "somevalue"
+      }
+    },
+    {
+      "code": "LOW_BALANCE",
+      "message": "Not an error but something we may want to act on"
     }
-  }, {
-    code: 'LOW_BALANCE',
-    message: 'Not an error but something we may want to act on',
-  }]
+  ]
 }
-
 ```
 
-```
+### Errors vs non errors
 
+The `events` response parameter is for all log entries that may be of relevance. The general recommendation is that if the event occurs as a result of an error being thrown then append `_ERROR`. Non error events can be used for debugging for ex:
+
+```js
+let events = []
+// Some info we want to log - perhaps based on a debug module option
+if(options.debug)
+  events.push({
+    code: 'SOMETHING',
+    message: 'Please make note of this',
+    data: { foo: 'bar' }
+  })
+
+try {
+  await someConnection()
+} catch(e) {
+  events.push({ code: 'BAD_ERROR', message: 'A bad thing happened', data: { error: e.toString  }))
+
+  // We could return here
+  return {
+    events
+  }
+}
 ```
