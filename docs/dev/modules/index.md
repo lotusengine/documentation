@@ -12,6 +12,10 @@ Modules should return an object in the following format:
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["success", "error"]
+    },
     "events": {
       "type": "array",
       "items": {
@@ -67,7 +71,8 @@ At the simplest format a simple return statement is equivalent to:
 ```json
 {
   "result": null,
-  "events": []
+  "events": [],
+  "status": "success"
 }
 ```
 
@@ -88,7 +93,8 @@ A sample response with payload, am event to be logged and an error:
       "code": "LOW_BALANCE",
       "message": "Not an error but something we may want to act on"
     }
-  ]
+  ],
+  "status": "error"
 }
 ```
 
@@ -117,3 +123,9 @@ try {
   }
 }
 ```
+
+### Response status
+
+The `status` field is used to determine the next course of action. An `error` status will cause the workflow to halt while a `success` status will allow the workflow to continue regardless of events (and potentially errors) returned.
+
+If no status is explicitly provided the default will be `success` unless one or more error codes (ending in `_ERROR`) exists in the events array.
