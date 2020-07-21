@@ -16,7 +16,7 @@ Modules should return an object in the following format:
       "type": "string",
       "enum": ["success", "error"]
     },
-    "events": {
+    "errors": {
       "type": "array",
       "items": {
         "type": "object",
@@ -71,61 +71,72 @@ At the simplest format a simple return statement is equivalent to:
 ```json
 {
   "result": null,
-  "events": [],
+  "errors": [],
   "status": "success"
 }
 ```
 
-A sample response with payload, am event to be logged and an error:
+A sample response with payload and an error:
 
 ```json
 {
   "result": { "foo": "bar" },
-  "events": [
+  "error": [
     {
-      "code": "REQUEST_ERROR",
+      "code": "BAD_REQUEST",
       "message": "That did not go well",
       "data": {
         "somedata": "somevalue"
       }
-    },
-    {
-      "code": "LOW_BALANCE",
-      "message": "Not an error but something we may want to act on"
     }
   ],
   "status": "error"
 }
 ```
 
-### Errors vs non errors
-
-The `events` response parameter is for all log entries that may be of relevance. The general recommendation is that if the event occurs as a result of an error being thrown then append `_ERROR`. Non error events can be used for debugging for ex:
+Example:
 
 ```js
-let events = []
-// Some info we want to log - perhaps based on a debug module option
-if(options.debug)
-  events.push({
-    code: 'SOMETHING',
-    message: 'Please make note of this',
-    data: { foo: 'bar' }
-  })
+let errors = []
 
 try {
   await someConnection()
-} catch(e) {
-  events.push({ code: 'BAD_ERROR', message: 'A bad thing happened', data: { error: e.toString  }))
+} catch (e) {
+  errors.push({ code: 'BAD_ERROR', message: 'A bad thing happened', data: {} })
 
-  // We could return here
+  // We could return here or continue...
   return {
-    events
+    errors
   }
 }
 ```
 
 ### Response status
 
-The `status` field is used to determine the next course of action. An `error` status will cause the workflow to halt while a `success` status will allow the workflow to continue regardless of events (and potentially errors) returned.
+The `status` field is used to determine the next course of action. An `error` status will cause the workflow to halt while a `success` status will allow the workflow to continue regardless of any errors returned.
 
-If no status is explicitly provided the default will be `success` unless one or more error codes (ending in `_ERROR`) exists in the events array.
+If no status is explicitly provided the default will be `success` unless one or more error exists im which case 'error' will be the default status causing the workflow to halt.
+
+### Error code naming convention
+
+When an error code is returned the system will automatically append `ERROR_MODULENAME_` to the code. This allows you to create trigers for all errors (match: `ERROR`) or all errors from that moodule (`ERROR_MODULENAME`). Therefore do not use `ERROR` in naming the code parameter since it will be done for you.
+
+### Error message and data
+
+While it may be tempting to simply pass a thrown error to the response as in:
+
+```js
+try {
+  await someConnection()
+} catch (e) {
+  errors.push({ code: 'BAD_ERROR', message: e.message, data: e }) // Bad
+
+  errors.push({
+    code: 'BAD_ERROR',
+    message: 'A bad thing happened',
+    data: { foo: 'bar' }
+  }) // Good
+}
+```
+
+This is not advised. We recommend that you explicitly provide a clear message and only provide the relevant data necessary for workflows to act upon. Stack traces are not useful...
