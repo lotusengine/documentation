@@ -21,6 +21,7 @@ Modules should return an object in the following format:
       "items": {
         "type": "object",
         "additionalProperties": false,
+        "required": ["code"],
         "properties": {
           "code": {
             "type": "string",
@@ -64,7 +65,7 @@ Modules should return an object in the following format:
 }
 ```
 
-The `code` parameter should be written in THIS_FORMAT and end with "ERROR" for errors.
+The `code` parameter should be written in THIS*FORMAT. Do not add "ERROR" as the system will automatically prepend "ERROR_MODULENAME*" to all returned codes (i.e. if a module name is foo and you return BAD_REQUEST then the full error code is `ERROR_FOO_BAD_REQUEST`.
 
 At the simplest format a simple return statement is equivalent to:
 
@@ -102,7 +103,11 @@ let errors = []
 try {
   await someConnection()
 } catch (e) {
-  errors.push({ code: 'BAD_ERROR', message: 'A bad thing happened', data: {} })
+  errors.push({
+    code: 'BAD_REQUEST',
+    message: 'A bad thing happened',
+    data: {}
+  })
 
   // We could return here or continue...
   return {
@@ -127,12 +132,13 @@ While it may be tempting to simply pass a thrown error to the response as in:
 
 ```js
 try {
+  g
   await someConnection()
 } catch (e) {
-  errors.push({ code: 'BAD_ERROR', message: e.message, data: e }) // Bad
+  errors.push({ code: 'BAD_REQUEST', message: e.message, data: e }) // Bad
 
   errors.push({
-    code: 'BAD_ERROR',
+    code: 'BAD_REQUEST',
     message: 'A bad thing happened',
     data: { foo: 'bar' }
   }) // Good
