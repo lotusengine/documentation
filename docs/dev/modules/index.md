@@ -3,14 +3,84 @@ path: '/docs/dev/modules'
 title: Module reference
 ---
 
+## What are modules
+
+Modules are simple NodeJS functions that are used to extend the functionality of workflows. If you are familiar with AWS Lambdas they are very similar in concept.
+
+A basic module exports a default function:
+
+```
+module.exports = (options, payload) => {
+  return "Hello World!"
+}
+```
+
+## Language
+
+The final module file must be valid for NodeJS 12.x. You can use babel to transform if you wish to use newer language features.
+
+## Module imports
+
+You can import/require modules but they must be webpacked into a single output file.
+
+## Request format
+
+The function accepts two parameters:
+
+#### options
+
+Options is an object containing configuration parameter necessary for the function to run. Examples of this might be an api key, a username, the name of a sub method to run, etc...
+
+#### JSON Schema
+
+```json
+{
+  "type": "object"
+}
+```
+
+#### payload
+
+Payload contains the runtime data passed to the module from the workflow. It is equivalent to a POST body though there are no restrictions as to the type (array, object, string, boolean, numbers and null).
+
+#### JSON Schema
+
+```json
+{
+  "oneOf": [
+    {
+      "type": "object"
+    },
+    {
+      "type": "number"
+    },
+    {
+      "type": "string"
+    },
+    {
+      "type": "array"
+    },
+    {
+      "type": "null"
+    },
+    {
+      "type": "boolean"
+    }
+  ]
+}
+```
+
 ## Response format
 
 Modules should return an object in the following format:
+
+#### JSON Schema
 
 ```json
 {
   "type": "object",
   "additionalProperties": false,
+  "required": ["status", "result"],
   "properties": {
     "status": {
       "type": "string",
@@ -65,7 +135,7 @@ Modules should return an object in the following format:
 }
 ```
 
-The `code` parameter should be written in THIS*FORMAT. Do not add "ERROR" as the system will automatically prepend "ERROR_MODULENAME*" to all returned codes (i.e. if a module name is foo and you return BAD_REQUEST then the full error code is `ERROR_FOO_BAD_REQUEST`.
+The `code` parameter should be written in THIS_FORMAT. Do not add "ERROR" as the system will automatically prepend "ERROR_MODULENAME\*" to all returned codes (i.e. if a module name is foo and you return BAD_REQUEST then the full error code is `ERROR_FOO_BAD_REQUEST`.
 
 At the simplest format a simple return statement is equivalent to:
 
@@ -132,7 +202,6 @@ While it may be tempting to simply pass a thrown error to the response as in:
 
 ```js
 try {
-  g
   await someConnection()
 } catch (e) {
   errors.push({ code: 'BAD_REQUEST', message: e.message, data: e }) // Bad
