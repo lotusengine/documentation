@@ -1,5 +1,5 @@
 ---
-path: '/docs/dev/workflows'
+path: '/dev/workflows'
 title: Workflows
 ---
 

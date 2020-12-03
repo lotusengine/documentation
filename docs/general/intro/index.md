@@ -1,5 +1,5 @@
 ---
-path: '/docs/general/intro'
+path: '/general/intro'
 title: Getting started
 ---
 

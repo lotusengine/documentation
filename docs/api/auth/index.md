@@ -1,5 +1,5 @@
 ---
-path: '/docs/api/auth'
+path: '/api/auth'
 title: API authentication
 ---
 

@@ -1,5 +1,5 @@
 ---
-path: '/docs/dev/intro'
+path: '/dev/intro'
 title: Developer docs
 ---
 

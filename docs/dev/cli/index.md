@@ -1,5 +1,5 @@
 ---
-path: '/docs/dev/cli'
+path: '/dev/cli'
 title: CLI reference
 ---
 

@@ -1,5 +1,5 @@
 ---
-path: '/docs/general/support'
+path: '/general/support'
 title: Getting help
 ---
 

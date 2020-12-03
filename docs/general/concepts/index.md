@@ -1,5 +1,5 @@
 ---
-path: '/docs/general/concepts'
+path: '/general/concepts'
 title: Core concepts
 ---
 

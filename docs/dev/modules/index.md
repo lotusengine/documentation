@@ -1,5 +1,5 @@
 ---
-path: '/docs/dev/modules'
+path: '/dev/modules'
 title: Module reference
 ---
 
@@ -39,34 +39,70 @@ Options is an object containing configuration parameter necessary for the functi
 }
 ```
 
-#### payload
+#### context
 
-Payload contains the runtime data passed to the module from the workflow. It is equivalent to a POST body though there are no restrictions as to the type (array, object, string, boolean, numbers and null).
+The context provides access to:
+
+- parameters: global user config parameters (object)
+- service: service specific config parameters (object)
+- payload: the runtime data passed to the module from the workflow. It is equivalent to a POST body though there are no restrictions as to the type (array, object, string, boolean, numbers and null)
+- query: Query URL parameters (if called from webhook)
+- headers: Request headers (if called from webhook)
+- loops: Optional loop object if currently in a loop action
+- stash: Stash area where action or modules result can be stored
 
 #### JSON Schema
 
 ```json
 {
-  "oneOf": [
-    {
-      "type": "object"
+  "$id": "https://schema.lotusengine.com/workflow_action_context.json",
+  "title": "Workflow Action Context",
+  "type": "object",
+  "properties": {
+    "stash": {
+      "type": "object",
+      "default": {}
     },
-    {
-      "type": "number"
+    "query": {
+      "type": "object",
+      "default": {}
     },
-    {
-      "type": "string"
+    "payload": {
+      "type": ["object", "array", "string", "number", "null", "boolean"],
+      "default": null
     },
-    {
-      "type": "array"
+    "headers": {
+      "type": "object",
+      "default": {}
     },
-    {
-      "type": "null"
+    "parameters": {
+      "type": "object",
+      "default": {}
     },
-    {
-      "type": "boolean"
+    "service": {
+      "type": "object",
+      "default": {}
+    },
+    "loops": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "index": {
+            "type": "integer"
+          },
+          "result": {
+            "type": ["string", "number", "array", "object", "null", "boolean"]
+          }
+        }
+      }
     }
-  ]
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -215,3 +251,12 @@ try {
 ```
 
 This is not advised. We recommend that you explicitly provide a clear message and only provide the relevant data necessary for workflows to act upon. Stack traces are not useful...
+
+## Running a module locally for development
+
+The summary of the steps:
+
+- Either use the CLI server (`module serve`) or create some kind of server wrapper to ensure proper request/response format
+- Use a localhost forwarding service (grok, localtunnel, etc)
+- Replace the module action with the request action - the module parameters should be passed as the `body` and the local tunnel URL to the module called with POST.
+- Profit

@@ -1,5 +1,5 @@
 ---
-path: '/docs/dev/stream'
+path: '/dev/stream'
 title: The stream object
 ---
 

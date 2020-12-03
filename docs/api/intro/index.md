@@ -1,5 +1,5 @@
 ---
-path: '/docs/api/intro'
+path: '/api/intro'
 title: API overview
 ---
 

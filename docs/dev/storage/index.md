@@ -1,5 +1,5 @@
 ---
-path: '/docs/dev/reference'
+path: '/dev/reference'
 title: Storage options
 ---
 
