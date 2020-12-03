@@ -1,5 +1,5 @@
 ---
-path: "/docs/ui/channels"
+path: "/ui/channels"
 title: Channels
 ---
 

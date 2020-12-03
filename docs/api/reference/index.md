@@ -1,5 +1,5 @@
 ---
-path: /docs/api/reference
+path: /api/reference
 title: Schema
 ---
 

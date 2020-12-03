@@ -1,5 +1,5 @@
 ---
-path: "/docs/ui/workflows"
+path: "/ui/workflows"
 title: Workflows
 ---
 

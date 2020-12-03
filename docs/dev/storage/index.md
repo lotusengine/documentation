@@ -15,7 +15,7 @@ Let's go over each one.
 
 ## Channel Storage
 
-Storing channel data refers to the storage of the incoming stream such as orders, vists, etc... This data can be queried using the GraphQL API. Please refer to [GraphQL API docs](/docs/api/intro).
+Storing channel data refers to the storage of the incoming stream such as orders, vists, etc... This data can be queried using the GraphQL API. Please refer to [GraphQL API docs](/api/intro).
 
 ## Encrypted Key Storage
 

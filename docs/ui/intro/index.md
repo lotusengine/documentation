@@ -1,5 +1,5 @@
 ---
-path: "/docs/ui/intro"
+path: "/ui/intro"
 title: Dashboard
 ---
 

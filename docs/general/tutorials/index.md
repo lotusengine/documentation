@@ -1,5 +1,5 @@
 ---
-path: "/docs/general/tutorials"
+path: "/general/tutorials"
 title: Tutorials
 ---
 
