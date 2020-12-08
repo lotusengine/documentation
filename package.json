@@ -5,12 +5,12 @@
   "scripts": {
     "schema": "graphql-markdown  --no-title --prologue='---\npath: '/api/reference'\ntitle: API reference\n---\n\n## Api reference'  http://localhost:62222/graphql > ./docs/api/reference/index.md"
   },
-  "name": "lotusengine-documentation",
-  "version": "1.0.0",
+  "name": "@lotusengine/docs",
+  "version": "0.3.0",
   "description": "LotusEngine documentation",
   "main": "index.js",
   "repository": "https://github.com/lotusengine/documentation",
   "author": "lotusengine",
   "license": "MIT",
-  "private": true
+  "private": false
 }
