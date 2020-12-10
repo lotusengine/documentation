@@ -5,7 +5,7 @@ title: JSONPath reference
 
 ## What is JSONPath
 
-(JSONPath)[https://goessner.net/articles/JsonPath/] is used to traverse JSON data structures. We use it in a few of our workflow modules such as:
+[JSONPath](https://goessner.net/articles/JsonPath/) is used to traverse JSON data structures. We use it in a few of our workflow modules such as:
 
 - mapping
 - logic

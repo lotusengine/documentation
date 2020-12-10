@@ -117,7 +117,7 @@ _Note_: origins and keys restrictions are cumulative.
 
 ## Creating keys
 
-Keys are simply tokens in the UUIDv1 format (ex: 9e9c72b0-d8c9-11e9-aca6-d7f551bd8a12). You can generate them yourself (online)[https://www.uuidgenerator.net/version1] or on MacOS/\*nix using the `uuidgen` command.
+Keys are simply tokens in the UUIDv1 format (ex: 9e9c72b0-d8c9-11e9-aca6-d7f551bd8a12). You can generate them yourself [online](https://www.uuidgenerator.net/version1)or on MacOS/\*nix using the `uuidgen` command.
 
 ```shell
 $ uuidgen
