@@ -3,4 +3,4 @@ path: '/general/support'
 title: Getting help
 ---
 
-Reach out to use through email at support@lotusengine.com and we will do our best to get you going.
+Reach our devs on our [GitHub discussion channel](https://github.com/lotusengine/lotusengine/discussions) and we will do our best to get you going.
