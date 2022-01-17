@@ -1,9 +1,7 @@
 {
-  "devDependencies": {
-    "graphql-markdown": "^5.2.0"
-  },
+  "devDependencies": {},
   "scripts": {
-    "schema": "graphql-markdown  --no-title --prologue='---\npath: '/api/reference'\ntitle: API reference\n---\n\n## Api reference'  http://localhost:62222/graphql > ./docs/api/reference/index.md"
+    "schema": "graphql-markdown  --no-title --prologue='---\npath: '/api/reference'\ntitle: API reference\n---\n\n## API reference' $(grep GRAPHQL_URL .env | cut -d '=' -f2) > ./pages/api/schema.md"
   },
   "name": "@lotusengine/documentation",
   "version": "0.3.1",

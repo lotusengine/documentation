@@ -260,3 +260,11 @@ The summary of the steps:
 - Use a localhost forwarding service (grok, localtunnel, etc)
 - Replace the module action with the request action - the module parameters should be passed as the `body` and the local tunnel URL to the module called with POST.
 - Profit
+
+## Developer tools
+
+- GraphQL API
+- CLI
+- TypeScript SDK
+
+

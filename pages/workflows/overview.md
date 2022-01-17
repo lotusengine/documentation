@@ -1,9 +1,6 @@
----
-path: '/dev/workflows'
-title: Workflows
----
+# Workflows
 
-## Workflows
+## Overview
 
 Workflows are the heart of LotusEngine. They define how your app will work - from webhook to storage to integrations. A workflow can be defined as a configuration file using JSON/YAML or through the LotusEngine UI. They can be exported, imported and shared.
 
@@ -249,3 +246,12 @@ export default async function (event) {
 _Note_ This is a wip feature.
 
 We are currently working on the option to export workflows as Docker containers to run as standalone services on your own servers. Stay tuned.
+
+
+## Developer tools
+
+- GraphQL API
+- CLI
+- TypeScript SDK
+
+

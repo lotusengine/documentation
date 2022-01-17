@@ -1,2 +1,4 @@
 .history
 .vscode
+# Ignore drafts
+*.tmp.md
